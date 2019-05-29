@@ -1,0 +1,79 @@
+<template>
+	<article class="post">
+		<header class="post-header">
+			<div class="post-title">
+				<h1>Post title</h1>
+				<nuxt-link to="/">
+					<i class="el-icon-back"></i>
+				</nuxt-link>
+			</div>
+			<div class="post-info">
+				<small>
+					<i class="el-icon-time"></i>
+					{{ new Date().toLocaleString() }}
+				</small>
+				<small>
+					<i class="el-icon-view"></i>
+					42
+				</small>
+			</div>
+			<div class="post-image">
+				<img 
+					src="https://stilist.ru/uploads/salon/6435/9193ec9ba3c92d810152c1cbef4259e3/10424985_359472567559454_684477581380200076_n_0.jpg" alt="post-image"
+				>
+			</div>
+		</header>
+		<main class="post-content">
+			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam sed reprehenderit numquam soluta est quod eveniet dolorem commodi perspiciatis iusto omnis dolorum, non totam repellat? Temporibus aliquid a saepe dolores, voluptas cupiditate ex sed eius libero hic, blanditiis tempore aut?</p>
+			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam sed reprehenderit numquam soluta est quod eveniet dolorem commodi perspiciatis iusto omnis dolorum, non totam repellat? Temporibus aliquid a saepe dolores, voluptas cupiditate ex sed eius libero hic, blanditiis tempore aut?</p>
+		</main>
+		<footer></footer>
+
+	</article>
+</template>
+
+<script>
+export default {
+	validate ({params}) {
+		return Boolean(params.id)
+	}
+}
+</script>
+
+<style lang="scss" scoped>
+
+	.post {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.post-title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.post-info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: .5rem;
+	}
+
+	.post-image img {
+		width: 100%;
+		height: auto;
+	}
+
+	.post-header {
+		margin-bottom: 1.5rem;
+	}
+
+	.post-content {
+		margin-bottom: 2rem;
+	}
+
+</style>
+
+
