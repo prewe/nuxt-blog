@@ -46,7 +46,7 @@ export default {
 				text: [
 				  { required: true, message: 'Введите ваш комментарий', trigger: 'blur' }
 				]
-		}
+			}
 		}
 	},
 	methods: {
