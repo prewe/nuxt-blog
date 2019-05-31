@@ -27,15 +27,47 @@
 			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam sed reprehenderit numquam soluta est quod eveniet dolorem commodi perspiciatis iusto omnis dolorum, non totam repellat? Temporibus aliquid a saepe dolores, voluptas cupiditate ex sed eius libero hic, blanditiis tempore aut?</p>
 			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam sed reprehenderit numquam soluta est quod eveniet dolorem commodi perspiciatis iusto omnis dolorum, non totam repellat? Temporibus aliquid a saepe dolores, voluptas cupiditate ex sed eius libero hic, blanditiis tempore aut?</p>
 		</main>
-		<footer></footer>
+		<footer>
+			<app-comment-form 
+				v-if="canAddComment"
+				@created="createCommentHandler"
+			/>
+			<div class="comments" v-if="true">
+				<app-comment
+					v-for="comment in 4"
+					:key="comment"
+					:comment="comment"
+				>
+
+				</app-comment>
+			</div>
+			<div class="text-center" v-else>Комментариев нет</div>
+		</footer>
 
 	</article>
 </template>
 
 <script>
+import AppComment from '@/components/main/Comment'
+import AppCommentForm from '@/components/main/CommentForm'
+
 export default {
 	validate ({params}) {
 		return Boolean(params.id)
+	},
+	data () {
+		return {
+			canAddComment: true
+		}
+	},
+	methods: {
+		createCommentHandler () {
+			this.canAddComment = false
+		}
+	},
+	components: {
+		AppComment,
+		AppCommentForm
 	}
 }
 </script>
